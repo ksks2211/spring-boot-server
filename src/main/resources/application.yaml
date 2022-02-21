@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  thymeleaf:
+    cache: false
+server:
+  port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: deploy
+server:
+  port: 3000
