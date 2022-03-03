@@ -30,4 +30,6 @@ public class TvShow extends BaseEntity{
 
     private Integer season;
     private Integer episode;
+
+    private Integer numOfSeasons;
 }
