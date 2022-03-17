@@ -10,8 +10,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum BoardType {
-    notice("NOTICE"),
-    free("FREE");
+    NOTICE("NOTICE"),
+    FREE("FREE");
 
     private final String value;
 }

@@ -1,9 +1,6 @@
 package org.iptime.yoon.springbootserver.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.iptime.yoon.springbootserver.domain.enums.BoardType;
 import org.iptime.yoon.springbootserver.domain.security.UserEntity;
 
@@ -19,6 +16,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Builder
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class Board extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +30,11 @@ public class Board extends BaseEntity {
     private String content;
 
     @Enumerated(EnumType.STRING)
-    private BoardType boardType;
+    @Builder.Default
+    private BoardType boardType = BoardType.FREE;
 
     // 작성자
     @ManyToOne(fetch = FetchType.LAZY)
-    private UserEntity userEntity;
+    @ToString.Exclude
+    private UserEntity user;
 }

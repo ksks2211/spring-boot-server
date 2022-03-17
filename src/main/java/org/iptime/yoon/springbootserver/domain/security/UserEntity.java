@@ -1,9 +1,6 @@
 package org.iptime.yoon.springbootserver.domain.security;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.iptime.yoon.springbootserver.domain.BaseEntity;
 
 import javax.persistence.Entity;
@@ -20,6 +17,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Builder
 @Getter
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class UserEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,5 +27,4 @@ public class UserEntity extends BaseEntity {
     private String email;
     private String password;
     private String username;
-
 }

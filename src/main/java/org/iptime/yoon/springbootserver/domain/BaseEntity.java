@@ -20,8 +20,6 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(value={AuditingEntityListener.class})
 @Data
-@ToString
-@EqualsAndHashCode
 public abstract class BaseEntity {
     @CreatedDate  // Entity 생성시간 , JPA에서 처리
     @Column(name="created_at",updatable=false)
