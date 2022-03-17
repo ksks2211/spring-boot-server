@@ -27,7 +27,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 class BoardTest {
 
-
     private final String boardTestTitle = "Test";
     private final String email = "test@gmail.com";
 
@@ -66,15 +65,11 @@ class BoardTest {
         assertThat(user.getPassword()).isEqualTo("1111");
         assertThat(user.getEmail()).isEqualTo(email);
 
-
         Board board = boardRepository.findByUser(user).get(0);
 
         assertThat(board.getTitle()).isEqualTo(boardTestTitle);
         assertThat(board.getSubTitle()).isEqualTo("sub-title");
         assertThat(board.getContent()).isEqualTo("content");
         assertThat(board.getBoardType()).isEqualTo(BoardType.FREE);
-
     }
-
-
 }
