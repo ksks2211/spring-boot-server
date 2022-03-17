@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @Data
 @ToString
 @EqualsAndHashCode
-abstract class BaseEntity {
+public abstract class BaseEntity {
     @CreatedDate  // Entity 생성시간 , JPA에서 처리
     @Column(name="created_at",updatable=false)
     private LocalDateTime createdAt;
