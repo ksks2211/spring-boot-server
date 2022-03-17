@@ -10,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author rival
@@ -26,14 +25,15 @@ class BoardServiceTest {
 
 
     @Test
-    void board_id조회_테스트(){
+    void board_id_find_test(){
         Board board = boardService.findBoardById(1L);
         System.out.println(board);
+
         assertThat(board).isNotNull();
     }
 
     @Test
-    void board_page조회_테스트(){
+    void board_page_find_test(){
         Page<Board> boardList = boardService.findBoardList(pageable);
         boardList.forEach(System.out::println);
         assertThat(boardList).hasSize(10);
