@@ -1,8 +1,8 @@
 package org.iptime.yoon.springbootserver.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.iptime.yoon.springbootserver.domain.Board;
-import org.iptime.yoon.springbootserver.service.BoardService;
+import org.iptime.yoon.springbootserver.domain.Post;
+import org.iptime.yoon.springbootserver.service.PostService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api")
 @RequiredArgsConstructor
 public class ApiController {
-    private final BoardService boardService;
+    private final PostService postService;
 
 
-    @GetMapping({"","/"})
-    public Board board(@RequestParam(value = "id",defaultValue = "0") Long id, Model model){
-        Board board = boardService.findBoardById(id);
-        return board;
-    }
-
-    @GetMapping("/list")
-    public Page<Board> list(@PageableDefault Pageable pageable, Model model){
-        Page<Board> boardList = boardService.findBoardList(pageable);
-        return boardList;
-    }
+//    @GetMapping({"","/"})
+//    public Post board(@RequestParam(value = "id",defaultValue = "0") Long id, Model model){
+//        // Post post = postService.findPost(id);
+//        return post;
+//    }
+//
+//    @GetMapping("/list")
+//    public Page<Post> list(@PageableDefault Pageable pageable, Model model){
+//        // Page<Post> boardList = postService.findPosts(pageable);
+//        return boardList;
+//    }
 
 }

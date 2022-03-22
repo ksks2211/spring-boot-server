@@ -1,9 +1,9 @@
 package org.iptime.yoon.springbootserver.config;
 
-import org.iptime.yoon.springbootserver.domain.Board;
-import org.iptime.yoon.springbootserver.domain.enums.BoardType;
+import org.iptime.yoon.springbootserver.domain.Post;
+import org.iptime.yoon.springbootserver.domain.enums.PostType;
 import org.iptime.yoon.springbootserver.domain.security.UserEntity;
-import org.iptime.yoon.springbootserver.repository.BoardRepository;
+import org.iptime.yoon.springbootserver.repository.PostRepository;
 import org.iptime.yoon.springbootserver.repository.UserEntityRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 public class CustomConfig {
 
     @Bean
-    public CommandLineRunner runner(UserEntityRepository userEntityRepository, BoardRepository boardRepository) {
+    public CommandLineRunner runner(UserEntityRepository userEntityRepository, PostRepository postRepository) {
 
         return args -> {
             UserEntity user = UserEntity.builder()
@@ -30,12 +30,12 @@ public class CustomConfig {
             userEntityRepository.save(user);
 
             IntStream.rangeClosed(1, 200).forEach(i ->
-                boardRepository.save(
-                    Board.builder()
+                postRepository.save(
+                    Post.builder()
                         .title("게시글" + i)
                         .subTitle("순서 " + i)
                         .content("content")
-                        .boardType(BoardType.FREE)
+                        .postType(PostType.FREE)
                         .user(user)
                         .build()
                 )

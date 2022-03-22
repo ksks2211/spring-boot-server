@@ -1,7 +1,7 @@
 package org.iptime.yoon.springbootserver.domain;
 
 import lombok.*;
-import org.iptime.yoon.springbootserver.domain.enums.BoardType;
+import org.iptime.yoon.springbootserver.domain.enums.PostType;
 import org.iptime.yoon.springbootserver.domain.security.UserEntity;
 
 import javax.persistence.*;
@@ -18,7 +18,7 @@ import javax.persistence.*;
 @Builder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Board extends BaseEntity {
+public class Post extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,7 +31,7 @@ public class Board extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Builder.Default
-    private BoardType boardType = BoardType.FREE;
+    private PostType postType = PostType.FREE;
 
     // 작성자
     @ManyToOne(fetch = FetchType.LAZY)

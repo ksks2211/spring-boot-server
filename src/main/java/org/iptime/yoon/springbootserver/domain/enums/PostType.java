@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
  */
 @RequiredArgsConstructor
 @Getter
-public enum BoardType {
+public enum PostType {
     NOTICE("NOTICE"),
     FREE("FREE");
 
