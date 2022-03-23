@@ -2,7 +2,7 @@ package org.iptime.yoon.springbootserver.domain;
 
 import lombok.*;
 import org.iptime.yoon.springbootserver.domain.enums.PostType;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 
 import javax.persistence.*;
 
@@ -20,7 +20,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class Post extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String title;

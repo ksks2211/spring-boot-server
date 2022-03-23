@@ -16,6 +16,6 @@ public class PostsResultDto extends PageResultDto<PostDto, Post> {
     }
 
     public List<PostDto> getPosts(){
-        return this.getDtoList();
+        return this.dtoList;
     }
 }

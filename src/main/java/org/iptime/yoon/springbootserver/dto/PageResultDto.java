@@ -1,6 +1,8 @@
 package org.iptime.yoon.springbootserver.dto;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,7 +17,8 @@ import java.util.stream.IntStream;
  */
 @Data
 public class PageResultDto<DTO, EN> {
-    private List<DTO> dtoList;
+    @Getter(value = AccessLevel.NONE)
+    protected List<DTO> dtoList;
 
     private int totalPage;
 

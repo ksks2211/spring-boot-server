@@ -2,7 +2,7 @@ package org.iptime.yoon.springbootserver.service;
 
 import org.iptime.yoon.springbootserver.domain.Post;
 import org.iptime.yoon.springbootserver.domain.enums.PostType;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.iptime.yoon.springbootserver.dto.PageRequestDto;
 import org.iptime.yoon.springbootserver.dto.PostDto;
 import org.iptime.yoon.springbootserver.dto.PostsResultDto;
@@ -12,10 +12,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -81,7 +79,7 @@ class PostServiceTest {
 
         // posts.getDtoList()
 
-        List<PostDto> postDtoList = resultDto.getDtoList();
+        List<PostDto> postDtoList = resultDto.getPosts();
 
         postDtoList.forEach(System.out::println);
 

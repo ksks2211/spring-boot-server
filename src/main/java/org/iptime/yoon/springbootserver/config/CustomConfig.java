@@ -2,13 +2,15 @@ package org.iptime.yoon.springbootserver.config;
 
 import org.iptime.yoon.springbootserver.domain.Post;
 import org.iptime.yoon.springbootserver.domain.enums.PostType;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.iptime.yoon.springbootserver.repository.PostRepository;
 import org.iptime.yoon.springbootserver.repository.UserEntityRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -29,17 +31,19 @@ public class CustomConfig {
                 .build();
             userEntityRepository.save(user);
 
-            IntStream.rangeClosed(1, 200).forEach(i ->
-                postRepository.save(
-                    Post.builder()
-                        .title("게시글" + i)
-                        .subTitle("순서 " + i)
-                        .content("content")
-                        .postType(PostType.FREE)
-                        .user(user)
-                        .build()
-                )
-            );
+
+            List<Post> posts = IntStream.rangeClosed(1, 200).asLongStream().mapToObj(i -> Post.builder()
+                .title("게시글" + i)
+                .subTitle("순서 " + i)
+                .content("content")
+                .postType(PostType.FREE)
+                .user(user)
+                .build()
+            ).collect(Collectors.toList());
+
+
+            postRepository.saveAll(posts);
+
         };
     }
 

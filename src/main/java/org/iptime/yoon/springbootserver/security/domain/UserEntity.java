@@ -1,12 +1,9 @@
-package org.iptime.yoon.springbootserver.domain.security;
+package org.iptime.yoon.springbootserver.security.domain;
 
 import lombok.*;
 import org.iptime.yoon.springbootserver.domain.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author rival
@@ -20,11 +17,20 @@ import javax.persistence.Id;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends BaseEntity {
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String email;
-    private String password;
+    @Column(unique = true)
     private String username;
+
+    @Column(unique = true)
+    private String email;
+
+    private String password;
+
+    // 소셜 로그인
+    private boolean fromSocial;
 }

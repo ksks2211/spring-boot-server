@@ -2,7 +2,7 @@ package org.iptime.yoon.springbootserver.repository;
 
 import org.iptime.yoon.springbootserver.domain.Post;
 import org.iptime.yoon.springbootserver.domain.enums.PostType;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

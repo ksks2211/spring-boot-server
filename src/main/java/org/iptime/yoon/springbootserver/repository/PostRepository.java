@@ -1,7 +1,7 @@
 package org.iptime.yoon.springbootserver.repository;
 
 import org.iptime.yoon.springbootserver.domain.Post;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

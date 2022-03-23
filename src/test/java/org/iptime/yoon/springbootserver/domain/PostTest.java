@@ -2,9 +2,9 @@ package org.iptime.yoon.springbootserver.domain;
 
 
 import org.iptime.yoon.springbootserver.domain.enums.PostType;
-import org.iptime.yoon.springbootserver.domain.security.UserEntity;
 import org.iptime.yoon.springbootserver.repository.PostRepository;
 import org.iptime.yoon.springbootserver.repository.UserEntityRepository;
+import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ class PostTest {
 
 
     @Test
-    public void entity_생성_확인하기() {
+    public void entity_creation_test() {
 
         UserEntity user = userEntityRepository.findByEmail(email).orElseThrow();
 
