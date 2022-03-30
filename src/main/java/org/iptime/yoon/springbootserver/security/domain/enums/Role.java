@@ -13,8 +13,8 @@ public enum Role {
     private final String role;
     private final Set<Privilege> privileges;
 
-    Role(String value, Set<Privilege> privileges) {
-        this.role = value;
+    Role(String role, Set<Privilege> privileges) {
+        this.role = role;
         this.privileges = privileges;
     }
 

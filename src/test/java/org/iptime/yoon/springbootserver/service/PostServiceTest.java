@@ -7,7 +7,7 @@ import org.iptime.yoon.springbootserver.dto.PageRequestDto;
 import org.iptime.yoon.springbootserver.dto.PostDto;
 import org.iptime.yoon.springbootserver.dto.PostsResultDto;
 import org.iptime.yoon.springbootserver.repository.PostRepository;
-import org.iptime.yoon.springbootserver.repository.UserEntityRepository;
+import org.iptime.yoon.springbootserver.security.repository.UserEntityRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

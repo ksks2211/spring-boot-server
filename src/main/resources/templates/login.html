@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/login}">
+    <h1> 로그인 </h1>
+    <label for="username">ID</label>
+    <input id="username"
+           name="username"
+           placeholder="이메일을 입력해 주세요."
+           required autofocus>
+    <label for="password">Password</label>
+    <input type="password"
+           id="password"
+           name="password"
+           placeholder="비밀번호를 입력해 주세요"
+           required>
+    <div>
+        <label>
+            <input type="checkbox" name="remember-me"> 로그인 기억하기
+        </label>
+    </div>
+    <button type="submit"> Login</button>
+    <div th:if="${loginError}">
+        <span> In correct </span>
+    </div>
+</form>
+
+
+</body>
+</html>

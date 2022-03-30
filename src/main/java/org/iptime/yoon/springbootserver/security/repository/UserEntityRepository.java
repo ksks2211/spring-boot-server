@@ -1,4 +1,4 @@
-package org.iptime.yoon.springbootserver.repository;
+package org.iptime.yoon.springbootserver.security.repository;
 
 import org.iptime.yoon.springbootserver.security.domain.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +13,8 @@ import java.util.Optional;
 @Repository
 public interface UserEntityRepository extends JpaRepository<UserEntity,Long> {
     Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findByUsername(String username);
     boolean existsByEmail(String email);
+    boolean existsByUsername(String username);
+
 }

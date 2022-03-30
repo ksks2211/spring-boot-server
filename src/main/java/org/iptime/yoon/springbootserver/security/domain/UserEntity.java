@@ -4,6 +4,8 @@ import lombok.*;
 import org.iptime.yoon.springbootserver.domain.BaseEntity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author rival
@@ -33,4 +35,9 @@ public class UserEntity extends BaseEntity {
 
     // 소셜 로그인
     private boolean fromSocial;
+
+    @OneToMany(mappedBy = "userEntity",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+    @Builder.Default
+    @ToString.Exclude
+    Set<UserRole> roles = new HashSet<>();
 }
