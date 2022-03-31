@@ -26,14 +26,14 @@ public class CustomConfig {
     public CommandLineRunner runner(UserEntityRepository userEntityRepository, PostRepository postRepository) {
 
         return args -> {
+
             UserEntity user = UserEntity.builder()
                 .username("james")
                 .password("1111")
                 .email("test@gmail.com")
                 .build();
+            new UserRole(Role.USER,user);
 
-
-            user.getRoles().add(new UserRole(Role.USER,user));
             userEntityRepository.save(user);
 
 

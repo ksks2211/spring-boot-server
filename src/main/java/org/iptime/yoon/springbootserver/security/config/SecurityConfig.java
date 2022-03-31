@@ -2,13 +2,13 @@ package org.iptime.yoon.springbootserver.security.config;
 
 import lombok.RequiredArgsConstructor;
 import org.iptime.yoon.springbootserver.security.service.UserEntityService;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,6 +25,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
     debug = true
 )
 @RequiredArgsConstructor
+@EnableGlobalMethodSecurity(
+    prePostEnabled = true
+)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserEntityService userEntityService;
@@ -51,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring()
             .requestMatchers(
                 PathRequest.toStaticResources().atCommonLocations(),// static 허용

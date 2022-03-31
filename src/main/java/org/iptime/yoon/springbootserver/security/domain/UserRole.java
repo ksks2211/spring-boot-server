@@ -18,6 +18,7 @@ public class UserRole {
     public UserRole(Role role,UserEntity userEntity){
         this.role=role;
         this.userEntity=userEntity;
+        userEntity.getRoles().add(this);
     }
 
     @Id

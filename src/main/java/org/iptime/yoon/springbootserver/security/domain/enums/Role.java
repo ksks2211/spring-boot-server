@@ -22,9 +22,7 @@ public enum Role {
         return  role;
     }
 
-    public String getValue(){
-        return role;
-    }
+
 
     public Set<Privilege> getPrivileges(){
         return this.privileges;

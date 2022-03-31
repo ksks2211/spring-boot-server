@@ -1,5 +1,6 @@
 package org.iptime.yoon.springbootserver.security.service;
 
+import lombok.RequiredArgsConstructor;
 import org.iptime.yoon.springbootserver.security.domain.UserRole;
 import org.iptime.yoon.springbootserver.security.domain.enums.Privilege;
 import org.iptime.yoon.springbootserver.security.domain.enums.Role;
@@ -14,7 +15,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,10 +23,10 @@ import java.util.stream.Collectors;
  * @since 2022-03-30
  */
 @Service
+@RequiredArgsConstructor
 public class UserEntityService implements UserDetailsService {
 
-    @Autowired
-    private UserEntityRepository userEntityRepository;
+    private final UserEntityRepository userEntityRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
